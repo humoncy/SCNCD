@@ -1,5 +1,4 @@
 import numpy as np
-from calc_prob import pzd
 from numpy.linalg import norm
 from tqdm import tqdm
 
@@ -81,7 +80,7 @@ def pzd(z, D):
     return p
 
 
-K = 5
+K = 3
 ALPHA = 1.
 # Salient colour names
 Z = [[255,0,0], [255,255,0], [0,255,0], [0,255,255], [0,0,255], [255,0,255],
