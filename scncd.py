@@ -29,7 +29,16 @@ class SCNCD():
         img_cn = np.zeros((img.shape[0], img.shape[1], 16))
         img_cn[:, :, ...] = self.table[discrete_index[:,:,0], discrete_index[:,:,1], discrete_index[:,:,2], ...]
         descriptor = np.sum(w_matrix.reshape((-1,1)) * img_cn.reshape((-1,16)), axis=0)
-        descriptor /= np.linalg.norm(descriptor)
+        
+        descriptor_norm = np.linalg.norm(descriptor)
+        if descriptor_norm == 0:
+            print("Image shape:", img.shape)
+            print("Descriptor:")
+            print(descriptor)
+            cv2.imshow('0', img)
+            cv2.waitKey(0)
+        else:
+            descriptor /= descriptor_norm
 
         return descriptor
 
