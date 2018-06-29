@@ -35,8 +35,8 @@ class SCNCD():
             print("Image shape:", img.shape)
             print("Descriptor:")
             print(descriptor)
-            cv2.imshow('0', img)
-            cv2.waitKey(0)
+            # cv2.imshow('0', img)
+            # cv2.waitKey(0)
         else:
             descriptor /= descriptor_norm
 
@@ -97,6 +97,7 @@ class SCNCD():
 
 # cosine = np.dot(feat, feat2)
 # print(cosine)
+# plt.savefig("scncd")
 # plt.show()
 
 # size = 10
