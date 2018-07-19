@@ -1,3 +1,5 @@
+""" Implementation of "Salient Color Names for Person Re-identification", ECCV, 2014
+"""
 import numpy as np
 from numpy.linalg import norm
 from tqdm import tqdm
@@ -69,18 +71,19 @@ def pwd(w, D):
 
 
 def pzd(z, D):
-    # The same as paper, but really slow
+    # Following lines are the same as paper, but really slow
     # p = 0.0
     # for w in D:
         # p += pzw(z, w) * pwd(w, D)
 
+    # Following lines are approximating the paper, fast
     mu = np.mean(D, axis=0)
-    p = 512 * pzw(z,mu) * pwd(mu, D)
+    p = 512 * pzw(z, mu) * pwd(mu, D)
 
     return p
 
 
-K = 3
+K = 3 # number of nearest neighbor
 ALPHA = 1.
 # Salient colour names
 Z = [[255,0,0], [255,255,0], [0,255,0], [0,255,255], [0,0,255], [255,0,255],

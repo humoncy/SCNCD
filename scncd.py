@@ -1,3 +1,5 @@
+""" Implementation of "Salient Color Names for Person Re-identification", ECCV, 2014
+"""
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
@@ -59,7 +61,7 @@ class SCNCD():
         plt.bar(x, height=feat, color=colours, edgecolor=(0,0,0))
 
     def visualize_weight(self, img):
-        """ Visualize the weighted matrix when computing scncd.
+        """ Visualize the Gaussian weighted matrix when computing scncd.
         """
         # start_time = time.time()
 
@@ -80,7 +82,8 @@ class SCNCD():
         return w_matrix
         
 
-
+""" The following lines are used to test scncd directly.
+"""
 # scncd = SCNCD()
 # img = cv2.imread("person.png")
 # feat = scncd.compute(img)
